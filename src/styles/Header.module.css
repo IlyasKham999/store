@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@300&display=swap');
+
+.main {
+    width: 100%;
+    height: 1024px;
+    background: linear-gradient(to right, #ffffff 878px, #272727 560px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.content {
+  width: 100%;
+  height: 845px;
+  margin-left: 162px;
+  margin-bottom: 70px;
+  margin-right: 162px;
+}
+
+/* NavBar */
+
+.logo {
+  position: absolute;
+}
+
+.nav{
+  display: grid;
+  grid-template-columns: 1000px 115px;
+  height: 53px;
+  align-items: center;
+}
+
+.icon_btn{
+    text-align: right;
+}
+
+.icon_btn img{
+    margin-left: 40px;
+}
+
+.burger_menu{
+    text-align: right;
+}
+
+/* MainProduct */
+.nameBoard{
+    margin-bottom: 40px;
+}
+
+.board {
+    width: 500px;
+}
+.mainProduct span{
+  display: inline-block;
+}
+
+.board h1{
+    margin-top: 280px;
+    font-size: 60px;
+    font-weight: 400;
+    width: 375px;
+    color: #272727;
+    font-family: 'Forum', cursive;
+}
+
+ 
+.board hr{
+    width: 130px;    
+    margin-left: 65.5px;
+}
+
+
+.board span{
+    display: inline-block;
+    margin-left: 38px;
+    color: #272727;
+    font-family: 'Segoe UI';
+    font-style: italic;
+}
+
+
+
+.IconRing{
+  margin-left: 67px;
+}
+
+/* head footer */
+.head_footer{
+  margin-top: 350px;
+  width: 100%;
+}
+
+.language{
+  display: inline-block;
+  margin-top: 76px;
+  letter-spacing: 10px;
+
+}
+
+.info_ring{
+  float: right;
+  text-align: right;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;  
+}
+
+.info_ring p{
+  margin-top: 10px;
+}
+
+
+.title{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.body{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.price{
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 24px;
+  color: #EFC58B;
+}
