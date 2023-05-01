@@ -1,0 +1,13 @@
+.container{
+    display: grid;
+    grid-template-columns: 400px auto 400px;
+    height: 820px;
+    margin-bottom: 20px;
+}
+
+
+.two_columns{
+    background: url(../img/twoColumns.png) no-repeat;
+    margin-left: 20px;
+    margin-right: 20px;
+}

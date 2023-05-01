@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@300&display=swap');
+
+.collection_block{
+    background-color: #EDEDED;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 400px;
+}
+
+.icon{
+    width: 260px;
+    height: 180px;
+    padding-top: 47px;
+    margin: auto;
+}
+
+.info_product{
+    margin-left: 40px;
+    margin-top: 67px;
+    font-family: 'Open Sans', sans-serif; 
+
+}
+
+.info_product h2{
+    font-family: 'Futura PT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 9px;
+    color: #272727;
+}
+
+.info_product h3{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 23px;
+    color: #757575;
+    margin-bottom: 9px;
+
+}
+
+.info_product p{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #E2B67A;
+    
+}
