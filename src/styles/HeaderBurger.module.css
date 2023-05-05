@@ -1,32 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@300&display=swap");
 
 .main {
-    width: 100%;
-    height: 1024px;
-    background:#272727;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-
-  .main_active {
-    width: 200%;
-    height: 1024px;
-    background-color: #272727;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-  }
+  width: 100%;
+  height: 1024px;
+  background: #272727;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .content {
   width: 100%;
   height: 845px;
-  margin-left: 162px;
   margin-bottom: 70px;
-  margin-right: 162px;
 }
 
 /* NavBar */
@@ -35,114 +22,175 @@
   position: absolute;
 }
 
-.nav{
+.nav {
   display: grid;
   grid-template-columns: 1000px 115px;
   height: 53px;
   align-items: center;
 }
 
-.icon_btn{
-    text-align: right;
-}
-
-.icon_btn img{
-    margin-left: 40px;
-}
-
-.burger_menu{
-    text-align: right;
-    cursor: pointer;
-
-}
-
-/* MainProduct */
-.nameBoard{
-    margin-bottom: 40px;
-}
-
-.board {
-    width: 500px;
-}
-.mainProduct span{
-  display: inline-block;
-}
-
-.board h1{
-    margin-top: 280px;
-    font-size: 60px;
-    font-weight: 400;
-    width: 400px;
-    color: #272727;
-    font-family: 'Forum', "cursive";
-}
-
- 
-.board hr{
-    width: 130px;    
-    margin-left: 65.5px;
-}
-
-
-.board span{
-    display: inline-block;
-    margin-left: 38px;
-    color: #272727;
-    font-family: 'Segoe UI';
-    font-style: italic;
-}
-
-
-
-.IconRing{
-  margin-left: 67px;
-}
-
-/* head footer */
-.head_footer{
-  margin-top: 350px;
-  width: 100%;
-}
-
-.language{
-  display: inline-block;
-  margin-top: 76px;
-  letter-spacing: 10px;
-
-}
-
-.info_ring{
-  float: right;
+.icon_btn {
   text-align: right;
-  color: #ffffff;
-  font-family: 'Open Sans', sans-serif;  
 }
 
-.info_ring p{
-  margin-top: 10px;
+.icon_btn img {
+  margin-left: 40px;
 }
 
+.burger_menu {
+  text-align: right;
+  cursor: pointer;
+}
 
-.title{
+.wth {
+  margin-left: 162px;
+  margin-right: 162px;
+}
+
+.pages {
+  padding-left: 162px;
+  padding-right: 162px;
+  display: grid;
+  width: 100%;
+  background-color: #2f2f2f;
+  height: 75px;
+  margin-top: 55px;
+  grid-template-columns: auto auto auto auto 150px;
+  text-decoration: none; /*убираем подчёркивание*/
+
+}
+
+.pages div {
+  font-family: 'Forum', "cursive";
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 450;
+  font-size: 16px;
   line-height: 21px;
-  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.body{
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 23px;
+.active{
+  color: #fff;
+  text-decoration: none;
+  padding: 26px 0 26px 0;
+
 }
 
-.price{
-  font-style: italic;
+.fltrBlock{
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 23px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 200px 300px;
+  margin-top: 70px;
+}
+
+.filtr div{
+  margin-bottom: 15px;
+}
+
+.nameColum{
+  font-family: 'Forum', "cursive";
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.headerBottom{
+  font-family: 'Open Sans', sans-serif;  
+  height: 100%;
+  margin: 70px 162px;
+  border-top: 2px solid #2F2F2F;
+  display: grid;
+  grid-template-columns: 800px auto;
+}
+
+.colection{
+  margin-top: 70px;
+  padding: 30px;
+  color: #fff;
+  background: url(../img/mans.png) no-repeat;
+}
+
+
+.nextText{
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 225px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 125px;
+}
+
+.nextText img{
+  margin-bottom: -3px;
+}
+
+.contact h2{
+  font-family: 'Open Sans', sans-serif;  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 70px;
+}
+
+.telephone{
+  font-style: normal;
   font-weight: 300;
   font-size: 18px;
-  line-height: 24px;
-  color: #EFC58B;
+  line-height: 23px;
+  color: #C2C2C2;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.link_social img{
+  margin-right: 20px;
+  margin-bottom: 15px;
+
+}
+
+.subscription h4{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  
+}
+
+.inputSubscr{
+  display: grid;
+  grid-template-columns: auto 30px;
+}
+
+.inputSubscr input{
+  width: 100%;
+  border: none;
+  background: none;
+  color: #C2C2C2;
+  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 23px;
+
+}
+
+hr{
+  margin-bottom: 13px;
 }

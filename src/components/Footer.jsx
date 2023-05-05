@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
           <hr />
           <img src={apleSotre} alt="" />
-          <img src={googlePlay} alt="" />
+          <img style={{marginBottom: "-2px"}} src={googlePlay} alt="" />
         </div>
       </div>
     </div>
