@@ -5,7 +5,7 @@ import IconBascet from "../img/icon_bascet.png";
 import { NavLink } from "react-router-dom";
 import classes from "../styles/Header.module.css";
 
-const Navigation = ({ icon, iconBurger, func }) => {
+const Navigation = ({ icon, iconBurger, func, url}) => {
   return (
     <div className={classes.nav}>
       <div className={classes.logo}>
@@ -25,9 +25,14 @@ const Navigation = ({ icon, iconBurger, func }) => {
         </NavLink>
       </div>
       <div className={classes.burger_menu}>
-        <div className={classes.burger_btn} onClick={() => func()}>
+        {url ? <div><NavLink className={classes.burger_btn}  to={url}>
           <img src={iconBurger} alt="" />
-        </div>
+        </NavLink></div> :
+        <NavLink className={classes.burger_btn} onClick={() => func()}>
+        <img src={iconBurger} alt="" />
+        </NavLink>
+        }
+        
       </div>
     </div>
   );

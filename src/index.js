@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import ForMan from "./pages/ForMan";
+import Jewelry from "./pages/Jewelry";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
-  { path: "/ForMan", element: <ForMan /> },
+  { path: "/Jewelry", element: <Jewelry /> },
   { path: "" },
 ]);
 

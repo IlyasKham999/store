@@ -15,12 +15,14 @@ function App() {
   return (
     <div>
       {burger === false ? <HeaderBurger></HeaderBurger> : <Header></Header>}
-      <ForManWom></ForManWom>
-      <Maps></Maps>
-      <RecommendedCollection></RecommendedCollection>
-      <SocialNetwork></SocialNetwork>
-      <SubscriptionNews></SubscriptionNews>
-      <Footer></Footer>
+      <div>
+        <ForManWom></ForManWom>
+        <Maps></Maps>
+        <RecommendedCollection></RecommendedCollection>
+        <SocialNetwork></SocialNetwork>
+        <SubscriptionNews></SubscriptionNews>
+        <Footer></Footer>
+      </div>
     </div>
   );
 }
