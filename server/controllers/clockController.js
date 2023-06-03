@@ -1,4 +1,4 @@
-const { Clock } = require("../models/models");
+const { Clock, Jewelry } = require("../models/models");
 const uuid = require("uuid");
 const path = require("path");
 const ApiError = require("../error/ApiError");
@@ -6,13 +6,14 @@ const ApiError = require("../error/ApiError");
 class ClockController {
   async create(req, res, next) {
     try {
-      let { name, title, price, brandId, typeId, info } = req.body;
+      let { name, form, title, price, brandId, typeId } = req.body;
       const { img } = req.files;
-      let fileName = uuid.v4() + ".png";
+      let fileName = uuid.v4() + ".jpeg";
       img.mv(path.resolve(__dirname, "..", "static", "clockPng", fileName));
 
       const clock = await Clock.create({
         name,
+        form,
         title,
         price,
         brandId,

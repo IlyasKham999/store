@@ -32,10 +32,12 @@
 .icon_btn {
   text-align: right;
 }
-
+.IconLike{
+}
 .icon_btn img {
   margin-left: 40px;
 }
+
 
 .burger_menu {
   text-align: right;
@@ -55,7 +57,7 @@
   background-color: #2f2f2f;
   height: 75px;
   margin-top: 55px;
-  grid-template-columns: auto auto auto auto 150px;
+  grid-template-columns: auto auto auto auto 170px;
   text-decoration: none; /*убираем подчёркивание*/
 }
 
@@ -75,6 +77,11 @@
   color: #fff;
   text-decoration: none;
   padding: 26px 0 26px 0;
+  transition: font-size 0.5s ease;
+}
+
+.active:hover{
+  font-size: 18px;
 }
 
 .fltrBlock {
@@ -94,15 +101,7 @@
   cursor: pointer;
 }
 
-.nameColum {
-  font-family: "Forum", "cursive";
-  font-style: normal;
-  font-size: 18px;
-  line-height: 21px;
-  text-transform: uppercase;
-  font-weight: 800;
-  margin-bottom: 30px;
-}
+
 
 .headerBottom {
   font-family: "Open Sans", sans-serif;
@@ -202,17 +201,45 @@ hr {
 .colect {
   padding: 30px 162px;
   padding-bottom: 30px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
   background-color: #ededed;
 }
 
+.nameColum {
+  font-family: "Forum", "cursive";
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+
+.widthItem{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.productItemColumns{
+  display: flex;
+  flex-basis: 110px;
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 20px;
+}
+
 .productItem {
+  flex-basis: auto;
+  justify-content: flex-start;
+  margin: 10px;
   background-color: #fff;
   width: 255px;
-  height: 350px;
-  
+  height: 385px;
+
 }
 
 .productItem img {
@@ -236,6 +263,11 @@ hr {
   color: #272727;
 }
 
+.brandList{
+  color: #fff;
+  text-decoration: none;
+}
+
 .title {
   font-style: normal;
   font-weight: 300;
@@ -252,3 +284,73 @@ hr {
   line-height: 24px;
   color: #e2b67a;
 }
+
+.formBascet{
+  background: #E2B67A;
+  padding: 10px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 5px;
+  transition: background 0.5s ease, color 0.5s ease, border 0.2s ease;
+}
+
+.formBascet:hover{
+  border: 2px solid #E2B67A;
+  background: #FFFFFF;
+  color: #E2B67A;
+}
+
+/*registration*/
+
+.registForm{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+
+
+
+.form {
+  padding: 15px;
+  margin: 20px auto;
+  background-color: #fff;
+  width: 600px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+
+}
+
+.form h1{
+  color: #2f2f2f;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  background-color: #272727;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #C2C2C2;
+}
+

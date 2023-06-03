@@ -1,4 +1,4 @@
-const { Type } = require("../models/models");
+const { Type, Jewelry } = require("../models/models");
 const ApiError = require("../error/ApiError");
 
 class TypeController {
@@ -10,6 +10,13 @@ class TypeController {
 
   async getAll(req, res) {
     const type = await Type.findAll();
+    return res.json(type);
+  }
+  async getOne(req, res) {
+    const { id } = req.params;
+    const type = await Type.findOne({
+      where: { id },
+    });
     return res.json(type);
   }
 }

@@ -17,8 +17,6 @@ const Karusel = () => {
       navigation
       Mousewheel
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
     >
       <SwiperSlide>
         <img src={icon4} alt="" />

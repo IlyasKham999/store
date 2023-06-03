@@ -6,13 +6,16 @@ const ApiError = require("../error/ApiError");
 class JewelryController {
   async create(req, res, next) {
     try {
-      let { name, title, price, brandId, typeId, info } = req.body;
+      let { name, form, title, price, brandId, typeId } = req.body;
       const { img } = req.files;
-      let fileName = uuid.v4() + ".png";
-      img.mv(path.resolve(__dirname, "..", "static", "jewelryPng", fileName));
+      let fileName = uuid.v4() + ".jpeg";
+      await img.mv(
+        path.resolve(__dirname, "..", "static", "jewelryPng", fileName)
+      );
 
       const jewelry = await Jewelry.create({
         name,
+        form,
         title,
         price,
         brandId,

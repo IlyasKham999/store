@@ -1,10 +1,14 @@
 import { createStore, combineReducers } from "redux";
 import { Burger } from "./Burger";
-import { Jewelry } from "./JewelryStore";
+import { FilterState } from "./FilterState";
+import { BurgerUrl } from "./BurgerUrl";
+import { UserName } from "./UserName";
 
 const rootReducer = combineReducers({
   burger: Burger,
-  items: Jewelry,
+  from: FilterState,
+  burgerUrl: BurgerUrl,
+  UserName: UserName,
 });
 
 export const store = createStore(rootReducer);

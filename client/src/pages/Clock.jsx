@@ -1,13 +1,107 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState, Component } from "react";
+import classes from "../styles/HeaderBurger.module.css";
+import NavigationBurger from "../components/NavigationBurger";
+import Footer from "../components/Footer";
+import ProductItems from "../components/ProductItems";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 function Clock() {
-    return (
-      <div className="Clock">
-            Clock
-            <NavLink to="/">home</NavLink>
-      </div>
-    );
+  const [item, setItem] = useState();
+  const [brand, setBrand] = useState();
+  const fromLink = useSelector((state) => state.from.from);
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_API_URL + "api/clock")
+      .then((response) => setItem(response.data));
+  }, []);
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_API_URL + "api/brand")
+      .then((response) => setBrand(response.data));
+  }, []);
+  if (!brand) {
+    return <h1>Lading...</h1>;
   }
-  
-  export default Clock;
+  return (
+    <div className={classes.Jewelry}>
+      <NavigationBurger></NavigationBurger>
+      <p style={{ borderTop: "2px solid #fff", margin: "30px 162px" }}></p>
+      <div className={classes.colect}>
+        {fromLink === "add" ? (
+          <div className={classes.widthItem}>
+            {item?.map((obj, index) => {
+              return (
+                <ProductItems
+                  className={classes.productItemColumns}
+                  key={obj.id}
+                  name={obj.name}
+                  brand={brand[obj.brandId - 1].name}
+                  title={obj.title}
+                  price={obj.price}
+                  image={`clockPng/${obj.img}`}
+                ></ProductItems>
+              );
+            })}
+          </div>
+        ) : fromLink === "man" ? (
+          <div className={classes.widthItem}>
+            {item?.map((obj) => {
+              if (obj.form === "man") {
+                return (
+                  <ProductItems
+                    className={classes.productItemColumns}
+                    key={obj.id}
+                    name={obj.name}
+                    brand={brand[obj.brandId - 1].name}
+                    title={obj.title}
+                    price={obj.price}
+                    image={`clockPng/${obj.img}`}
+                  ></ProductItems>
+                );
+              }
+            })}
+          </div>
+        ) : fromLink === "wom" ? (
+          <div className={classes.widthItem}>
+            {item?.map((obj) => {
+              if (obj.form === "wom") {
+                return (
+                  <ProductItems
+                    className={classes.productItemColumns}
+                    key={obj.id}
+                    name={obj.name}
+                    brand={brand[obj.brandId - 1].name}
+                    title={obj.title}
+                    price={obj.price}
+                    image={`clockPng/${obj.img}`}
+                  ></ProductItems>
+                );
+              }
+            })}
+          </div>
+        ) : (
+          <div className={classes.widthItem}>
+            {item?.map((obj) => {
+              if (brand[obj.brandId - 1].name === fromLink) {
+                return (
+                  <ProductItems
+                    className={classes.productItemColumns}
+                    key={obj.id}
+                    name={obj.name}
+                    brand={brand[obj.brandId - 1].name}
+                    title={obj.title}
+                    price={obj.price}
+                    image={`clockPng/${obj.img}`}
+                  ></ProductItems>
+                );
+              }
+            })}
+          </div>
+        )}
+      </div>
+      <Footer></Footer>
+    </div>
+  );
+}
+export default Clock;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Navigation from "./Navigation";
 import classes from "../styles/HeaderBurger.module.css";
 import logoWhite from "../img/logoW.png";
@@ -8,145 +8,150 @@ import Clock from "./Clock";
 import Brend from "./Brend";
 import Aromat from "./Aromat";
 import Izdelia from "./Izdelia";
-import iconBack from "../img/back.png"
+import iconBack from "../img/back.png";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  activeBrandAction,
+  activeClockAction,
+  activeJewelryAction,
+  activeLeatherAction,
+  activePerfumeAction,
+} from "../store/BurgerUrl";
+import { fromFilterAction } from "../store/FilterState";
 
-function NavigationBurger() {
-
-
-  const [activPage, setActivPage] = useState(true);
-  const [activClock, setActivClock] = useState(false);
-  const [activBrend, setActivBrend] = useState(false);
-  const [activAromat, setActivAromat] = useState(false);
-  const [activIzdelia, setAcctivIzdelia] = useState(false);
+function NavigationBurger({ act }) {
+  const dispatch = useDispatch();
+  const filterState = (stateFrom) => {
+    dispatch(fromFilterAction(stateFrom));
+  };
+  const activPage = useSelector((state) => state.burgerUrl.activJewelry);
+  const activClock = useSelector((state) => state.burgerUrl.activClock);
+  const activBrend = useSelector((state) => state.burgerUrl.activBrend);
+  const activAromat = useSelector((state) => state.burgerUrl.activAromat);
+  const activIzdelia = useSelector((state) => state.burgerUrl.activIzdelia);
 
   const actFun = () => {
-    if (activPage === false) {
-      setActivPage(true);
-      setActivClock(false);
-      setActivBrend(false);
-      setActivAromat(false);
-      setAcctivIzdelia(false);
-    }
+    dispatch(activeJewelryAction(true));
+    filterState("add");
   };
   const actClock = () => {
-    if (activClock === false) {
-      setActivClock(true);
-      setActivPage(false);
-      setActivBrend(false);
-      setActivAromat(false);
-      setAcctivIzdelia(false);
-    }
+    dispatch(activeClockAction(true));
+    filterState("add");
   };
-  const actBrend = () => {
-    if (activBrend === false) {
-      setActivClock(false);
-      setActivPage(false);
-      setActivBrend(true);
-      setActivAromat(false);
-      setAcctivIzdelia(false);
-    }
+  const actBrand = () => {
+    dispatch(activeBrandAction(true));
+    filterState("add");
   };
   const actAromat = () => {
-    if (activAromat === false) {
-      setActivClock(false);
-      setActivPage(false);
-      setActivBrend(false);
-      setActivAromat(true);
-      setAcctivIzdelia(false);
-    }
+    dispatch(activePerfumeAction(true));
+    filterState("add");
   };
   const actizdelia = () => {
-    if (activIzdelia === false) {
-      setActivClock(false);
-      setActivPage(false);
-      setActivBrend(false);
-      setActivAromat(false);
-      setAcctivIzdelia(true);
-    }
+    dispatch(activeLeatherAction(true));
+    filterState("add");
   };
+
   const styleBorderBottom = {
     borderBottom: "2px solid #fff",
-  }
+  };
   const styleBorderBottomOff = {
-    borderBottom: "none"
-  }
+    borderBottom: "none",
+  };
   const backFunc = "/";
-    return (
-      <div className={classes.Jewelry}>
-        <div className={classes.wth}>
-            <Navigation
-              icon={logoWhite}
-              iconBurger={iconBack}
-              url={backFunc}
-            ></Navigation>
-        </div>
-        <div className={classes.pages}>
-            <div>
-              <NavLink
-                className={classes.active}
-                style={activPage === true ? styleBorderBottom : styleBorderBottomOff}
-                onClick={() => {
-                  actFun();
-                }}
-              >
-                Ювелирные изделия
-              </NavLink>
-            </div>
-            <div className={classes.act}>
-              <NavLink
-                className={({ isActive }) => (isActive ? classes.active : "")}
-                style={activClock === true ? styleBorderBottom : styleBorderBottomOff}
-                onClick={() => {
-                  actClock();
-                }}
-              >
-                часы
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                className={classes.active}
-                style={activBrend === true ? styleBorderBottom : styleBorderBottomOff}
-                onClick={() => {
-                  actBrend();
-                }}
-              >
-                бренды
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                className={classes.active}
-                style={activAromat === true ? styleBorderBottom : styleBorderBottomOff}
-                onClick={() => {
-                  actAromat();
-                }}
-              >
-                ароматы
-              </NavLink>
-            </div>
-            <div className={classes.act}>
-              <NavLink
-                className={classes.active}
-                style={activIzdelia === true ? styleBorderBottom : styleBorderBottomOff}
-                onClick={() => {
-                  actizdelia();
-                }}
-              >
-                изделия из кожи
-              </NavLink>
-            </div>
-            
-          </div>
-          <div style={{ marginLeft: "162px", marginRight: "162px" }}>
-            {activPage === true ? <Yuovelir></Yuovelir> : ""}
-            {activClock === true ? <Clock></Clock> : ""}
-            {activBrend === true ? <Brend></Brend> : ""}
-            {activAromat === true ? <Aromat></Aromat> : ""}
-            {activIzdelia === true ? <Izdelia></Izdelia> : ""}
-          </div>
+  return (
+    <div className={classes.Jewelry}>
+      <div className={classes.wth}>
+        <Navigation
+          icon={logoWhite}
+          iconBurger={iconBack}
+          url={backFunc}
+        ></Navigation>
       </div>
-    );
-  }
-  
-  export default NavigationBurger;
+      <div className={classes.pages}>
+        <div>
+          <NavLink
+            state={{ fromLink: "add" }}
+            to="/Jewelry"
+            className={classes.active}
+            style={
+              activPage === true ? styleBorderBottom : styleBorderBottomOff
+            }
+            onClick={() => {
+              actFun();
+            }}
+          >
+            Ювелирные изделия
+          </NavLink>
+        </div>
+        <div className={classes.act}>
+          <NavLink
+            state={{ fromLink: "add" }}
+            to="/Clock"
+            className={classes.active}
+            style={
+              activClock === true ? styleBorderBottom : styleBorderBottomOff
+            }
+            onClick={() => {
+              actClock();
+            }}
+          >
+            часы
+          </NavLink>
+        </div>
+        <div>
+          <NavLink
+            to="/Brand"
+            className={classes.active}
+            style={
+              activBrend === true ? styleBorderBottom : styleBorderBottomOff
+            }
+            onClick={() => {
+              actBrand();
+            }}
+          >
+            бренды
+          </NavLink>
+        </div>
+        <div>
+          <NavLink
+            state={{ fromLink: "add" }}
+            to="/Perfume"
+            className={classes.active}
+            style={
+              activAromat === true ? styleBorderBottom : styleBorderBottomOff
+            }
+            onClick={() => {
+              actAromat();
+            }}
+          >
+            ароматы
+          </NavLink>
+        </div>
+        <div className={classes.act}>
+          <NavLink
+            state={{ fromLink: "add" }}
+            to="/LeatherProducts"
+            className={classes.active}
+            style={
+              activIzdelia === true ? styleBorderBottom : styleBorderBottomOff
+            }
+            onClick={() => {
+              actizdelia();
+            }}
+          >
+            изделия из кожи
+          </NavLink>
+        </div>
+      </div>
+      <div style={{ marginLeft: "162px", marginRight: "162px" }}>
+        {activPage === true ? <Yuovelir></Yuovelir> : ""}
+        {activClock === true ? <Clock></Clock> : ""}
+        {activBrend === true ? <Brend></Brend> : ""}
+        {activAromat === true ? <Aromat></Aromat> : ""}
+        {activIzdelia === true ? <Izdelia></Izdelia> : ""}
+      </div>
+    </div>
+  );
+}
+
+export default NavigationBurger;

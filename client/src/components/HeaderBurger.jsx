@@ -3,7 +3,7 @@ import classes from "../styles/HeaderBurger.module.css";
 import Navigation from "./Navigation";
 import logoWhite from "../img/logoW.png";
 import IconBurger from "../img/x.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { activeBorgerAction } from "../store/Burger";
 import { NavLink } from "react-router-dom";
 import Yuovelir from "./Yuovelir";
@@ -16,71 +16,47 @@ import googlePlay from "../img/iconPlayMarcet.png";
 import iconButton from "../img/arrow.png";
 import iconFacebook from "../img/iconfacebook.png";
 import iconinstagram from "../img/iconInstagram.png";
+import {
+  activeBrandAction,
+  activeClockAction,
+  activeJewelryAction,
+  activeLeatherAction,
+  activePerfumeAction,
+} from "../store/BurgerUrl";
 
 const HeaderBurger = () => {
   const dispatch = useDispatch();
   const activeBurger = () => {
     dispatch(activeBorgerAction(true));
   };
+  const activPage = useSelector((state) => state.burgerUrl.activJewelry);
+  const activClock = useSelector((state) => state.burgerUrl.activClock);
+  const activBrend = useSelector((state) => state.burgerUrl.activBrend);
+  const activAromat = useSelector((state) => state.burgerUrl.activAromat);
+  const activIzdelia = useSelector((state) => state.burgerUrl.activIzdelia);
 
-  const [activPage, setActivPage] = useState(true);
-  const [activClock, setActivClock] = useState(false);
-  const [activBrend, setActivBrend] = useState(false);
-  const [activAromat, setActivAromat] = useState(false);
-  const [activIzdelia, setAcctivIzdelia] = useState(false);
-
-  const actFun = () => {
-    if (activPage === false) {
-      setActivPage(true);
-      setActivClock(false);
-      setActivBrend(false);
-      setActivAromat(false);
-      setAcctivIzdelia(false);
-    }
+  const actFun = (event) => {
+    dispatch(activeJewelryAction(true));
   };
-  const actClock = () => {
-    if (activClock === false) {
-      setActivClock(true);
-      setActivPage(false);
-      setActivBrend(false);
-      setActivAromat(false);
-      setAcctivIzdelia(false);
-    }
+  const actClock = (event) => {
+    dispatch(activeClockAction(true));
   };
   const actBrend = () => {
-    if (activBrend === false) {
-      setActivClock(false);
-      setActivPage(false);
-      setActivBrend(true);
-      setActivAromat(false);
-      setAcctivIzdelia(false);
-    }
+    dispatch(activeBrandAction(true));
   };
   const actAromat = () => {
-    if (activAromat === false) {
-      setActivClock(false);
-      setActivPage(false);
-      setActivBrend(false);
-      setActivAromat(true);
-      setAcctivIzdelia(false);
-    }
+    dispatch(activePerfumeAction(true));
   };
   const actizdelia = () => {
-    if (activIzdelia === false) {
-      setActivClock(false);
-      setActivPage(false);
-      setActivBrend(false);
-      setActivAromat(false);
-      setAcctivIzdelia(true);
-    }
+    dispatch(activeLeatherAction(true));
   };
 
   const styleBorderBottom = {
     borderBottom: "2px solid #fff",
-  }
+  };
   const styleBorderBottomOff = {
-    borderBottom: "none"
-  }
+    borderBottom: "none",
+  };
   return (
     <div>
       <div className={classes.main}>
@@ -95,8 +71,11 @@ const HeaderBurger = () => {
           <div className={classes.pages}>
             <div>
               <NavLink
+                to="/Jewelry"
                 className={classes.active}
-                style={activPage === true ? styleBorderBottom : styleBorderBottomOff}
+                style={
+                  activPage === true ? styleBorderBottom : styleBorderBottomOff
+                }
                 onClick={() => {
                   actFun();
                 }}
@@ -106,8 +85,11 @@ const HeaderBurger = () => {
             </div>
             <div className={classes.act}>
               <NavLink
-                className={({ isActive }) => (isActive ? classes.active : "")}
-                style={activClock === true ? styleBorderBottom : styleBorderBottomOff}
+                to="/Clock"
+                className={classes.active}
+                style={
+                  activClock === true ? styleBorderBottom : styleBorderBottomOff
+                }
                 onClick={() => {
                   actClock();
                 }}
@@ -118,7 +100,9 @@ const HeaderBurger = () => {
             <div>
               <NavLink
                 className={classes.active}
-                style={activBrend === true ? styleBorderBottom : styleBorderBottomOff}
+                style={
+                  activBrend === true ? styleBorderBottom : styleBorderBottomOff
+                }
                 onClick={() => {
                   actBrend();
                 }}
@@ -128,8 +112,13 @@ const HeaderBurger = () => {
             </div>
             <div>
               <NavLink
+                to="/Perfume"
                 className={classes.active}
-                style={activAromat === true ? styleBorderBottom : styleBorderBottomOff}
+                style={
+                  activAromat === true
+                    ? styleBorderBottom
+                    : styleBorderBottomOff
+                }
                 onClick={() => {
                   actAromat();
                 }}
@@ -139,8 +128,13 @@ const HeaderBurger = () => {
             </div>
             <div className={classes.act}>
               <NavLink
+                to="/LeatherProducts"
                 className={classes.active}
-                style={activIzdelia === true ? styleBorderBottom : styleBorderBottomOff}
+                style={
+                  activIzdelia === true
+                    ? styleBorderBottom
+                    : styleBorderBottomOff
+                }
                 onClick={() => {
                   actizdelia();
                 }}
@@ -159,12 +153,17 @@ const HeaderBurger = () => {
           <div className={classes.headerBottom}>
             <div className={classes.colection}>
               <div>
-              <div className={classes.titleText}>
-                Новая коллекция by Mercury
+                <div className={classes.titleText}>
+                  Новая коллекция by Mercury
+                </div>
+                <h1 className={classes.badyText}>JUSTE UN CLOU</h1>
+                <div className={classes.nextText}>
+                  <div>Cмотреть коллекцию</div>
+                  <div>
+                    <img src={iconButton} alt="" />
+                  </div>
+                </div>
               </div>
-              <h1 className={classes.badyText}>JUSTE UN CLOU</h1>
-              <div className={classes.nextText}><div>Cмотреть коллекцию</div><div><img src={iconButton} alt="" /></div></div>
-            </div>
             </div>
             <div className={classes.telephone}>
               <div className={classes.contact}>
@@ -190,7 +189,7 @@ const HeaderBurger = () => {
                   </div>
                 </div>
                 <hr />
-                <img style={{marginBottom: "2px"}} src={apleSotre} alt="" />
+                <img style={{ marginBottom: "2px" }} src={apleSotre} alt="" />
                 <img src={googlePlay} alt="" />
               </div>
             </div>
